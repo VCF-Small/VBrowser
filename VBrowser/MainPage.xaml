@@ -6,10 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
-    <Grid RequestedTheme="Light" Background="white">
-        <WebView  Name="web"/>
-    </Grid>
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
 
+    <Grid RequestedTheme="Light" Background="white">
+        <Button Name="BackButton" Content="B" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
+        <Button Name="ForwordButton" Content="F" Margin="60,10,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
+        <Button Name="RefreshButton" Content="R" Margin="110,10,0,0" VerticalAlignment="Top" Height="30" Width="40" />
+        <Button Name="HomeButton" Content="H" Margin="160,10,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
+        <TextBox Name="Urlbox" Margin="210,8,191,0" PlaceholderText="Enert Url" TextWrapping="Wrap" VerticalAlignment="Top" Height="33"/>
+        <Button Content="Search" Margin="0,8,147,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="37" Name="Search" Click="Search_Web"/>
+        <ComboBox Name="More" Margin="0,9,10,0" Width="132" HorizontalAlignment="Right" PlaceholderText="More" IsDropDownOpen="True">
+            <ListBoxItem Content="History"/>
+            <ListBoxItem Content="Downloads"/>
+        </ComboBox>
+        <WebView Margin="0,46,0,0" Name="Web" />
+
+    </Grid>
 </Page>

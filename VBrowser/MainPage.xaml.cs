@@ -25,6 +25,9 @@ namespace VBrowser
         public MainPage()
         {
             this.InitializeComponent();
+            WebView web = (WebView)FindName("web");
+            Uri url = new Uri("https://vcfstudio.in");
+            web.Navigate(url);
         }
     }
 }

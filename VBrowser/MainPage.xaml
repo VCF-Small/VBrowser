@@ -8,7 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
 
-    <Grid>
+    <Grid RequestedTheme="Light" Background="white">
+        <Button Name="BackButton" Content="B" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click ="Backward"/>
+        <Button Name="ForwardButton" Content="F" Margin="60,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click ="Forward"/>
+        <Button Name="RefreshButton" Content="R" Margin="110,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click="Reload" />
+        <Button Name="HomeButton" Content="H" Margin="160,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click="GoHome" />
         <Button Name="BackButton" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="40" ManipulationMode="System">
             <Button.Background>
                 <ImageBrush ImageSource="ms-appx:///Assets/back.png"/>

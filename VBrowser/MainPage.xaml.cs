@@ -23,12 +23,17 @@ namespace VBrowser
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        List<String> WebPages = new List<string>();
+        int count = 0;
+        int ctr = 0;
         public MainPage()
         {
             this.InitializeComponent();
             WebView Web = (WebView)FindName("Web");
-            Uri Url = new Uri("https://www.google.com");
+            WebPages.Add("https://vcfstudio.in");
+            count++;
+            ctr++;
+            Uri Url = new Uri("https://vcfstudio.in");
             Web.Navigate(Url);
         }
 
@@ -37,6 +42,9 @@ namespace VBrowser
             TextBox UrlBox = (TextBox)FindName("Urlbox");
             if (UrlBox.Text.StartsWith("https://") || UrlBox.Text.StartsWith("http://") )
             {
+                WebPages.Add(UrlBox.Text);
+                count++;
+                ctr++;
                 Uri Url = new Uri(UrlBox.Text);
                 Web.Navigate(Url);
             }
@@ -52,11 +60,43 @@ namespace VBrowser
                     }
                     url += UrlBox.Text[i];
                 }
+                WebPages.Add(url);
+                count++;
+                ctr++;
                 Uri Url = new Uri(url);
                 Web.Navigate(Url);
             }
-            
+        }
 
+        private void GoHome(object sender, RoutedEventArgs e)
+        {
+            WebPages.Add(WebPages[0]);
+            count++;
+            ctr++;
+            Uri Url = new Uri(WebPages[0]);
+            Web.Navigate(Url);
+        }
+        private void Reload(object sender, RoutedEventArgs e)
+        {
+            Uri Url = new Uri(WebPages[ctr -1]);
+            Web.Navigate(Url);
+        }
+        private void Backward(object sender, RoutedEventArgs e)
+        {
+            if(ctr > 1)
+            {
+                ctr--;
+                Uri Url = new Uri(WebPages[ctr - 1]);
+                Web.Navigate(Url);
+            }
+        }
+        private void Forward(object sender, RoutedEventArgs e)
+        {
+            if(ctr <= count - 1)
+            {
+                Uri Url = new Uri(WebPages[ctr]);
+                Web.Navigate(Url);
+            }
         }
     }
 }

@@ -37,10 +37,43 @@ namespace VBrowser
             Web.Navigate(Url);
         }
 
+        private void KeyDownSearch(object sender, KeyRoutedEventArgs e)
+        {
+            if(e.Key == Windows.System.VirtualKey.Enter)
+            {
+                TextBox UrlBox = (TextBox)FindName("Urlbox");
+                if (UrlBox.Text.StartsWith("https://") || UrlBox.Text.StartsWith("http://"))
+                {
+                    WebPages.Add(UrlBox.Text);
+                    count++;
+                    ctr++;
+                    Uri Url = new Uri(UrlBox.Text);
+                    Web.Navigate(Url);
+                }
+                else
+                {
+                    int i;
+                    String url = "https://www.google.com/search?q=";
+                    for (i = 0; i < UrlBox.Text.Length; i++)
+                    {
+                        if (UrlBox.Text[i] == ' ')
+                        {
+                            url += "%20";
+                        }
+                        url += UrlBox.Text[i];
+                    }
+                    WebPages.Add(url);
+                    count++;
+                    ctr++;
+                    Uri Url = new Uri(url);
+                    Web.Navigate(Url);
+                }
+            }
+        }
         private void Search_Web(object sender, RoutedEventArgs e)
         {
             TextBox UrlBox = (TextBox)FindName("Urlbox");
-            if (UrlBox.Text.StartsWith("https://") || UrlBox.Text.StartsWith("http://") )
+            if (UrlBox.Text.StartsWith("https://") || UrlBox.Text.StartsWith("http://"))
             {
                 WebPages.Add(UrlBox.Text);
                 count++;
@@ -51,10 +84,10 @@ namespace VBrowser
             else
             {
                 int i;
-                String url ="https://www.google.com/search?q=";
-                for(i =0; i<UrlBox.Text.Length; i++)
+                String url = "https://www.google.com/search?q=";
+                for (i = 0; i < UrlBox.Text.Length; i++)
                 {
-                    if(UrlBox.Text[i] == ' ')
+                    if (UrlBox.Text[i] == ' ')
                     {
                         url += "%20";
                     }

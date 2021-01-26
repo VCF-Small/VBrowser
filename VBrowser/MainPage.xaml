@@ -8,17 +8,13 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
 
-    <Grid RequestedTheme="Light" Background="white">
-        <Button Name="BackButton" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click ="Backward">
-            <Button.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/back.png"/>
-            </Button.Background>
-        </Button>
-        <Button Name="ForwardButton" Content="F" Margin="60,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click ="Forward"/>
-        <Button Name="RefreshButton" Content="R" Margin="110,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click="Reload" />
-        <Button Name="HomeButton" Content="H" Margin="160,10,0,0" VerticalAlignment="Top" Height="30" Width="40" Click="GoHome" />
-        <TextBox Name="Urlbox" Margin="210,8,191,0" PlaceholderText="Enert Url" TextWrapping="Wrap" VerticalAlignment="Top" Height="33"/>
-        <Button Content="Search" Margin="0,8,147,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="37" Name="Search" Click="Search_Web"/>
+    <Grid Background="white">
+        <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Margin="10,9,0,0" VerticalAlignment="Top" Height="32" Width="40" Click ="Backward"/>
+        <Button Name="ForwardButton" FontFamily="Segoe MDL2 Assets" Content="&#xE72A;" Margin="60,9,0,0" VerticalAlignment="Top" Height="32" Width="40" Click ="Forward"/>
+        <Button Name="RefreshButton" FontFamily="Segoe MDL2 Assets" Content="&#xE72C;" Margin="110,9,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="Reload" />
+        <Button Name="HomeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Margin="160,9,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="GoHome" />
+        <TextBox Name="Urlbox" Margin="210,8,191,0" KeyDown="KeyDownSearch" PlaceholderText="Enert Url" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" />
+        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE721;" Margin="0,9,147,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="37" Name="Search" Click="Search_Web" Height="32"/>
         <ComboBox Name="More" Margin="0,9,10,0" Width="132" HorizontalAlignment="Right" PlaceholderText="More" IsDropDownOpen="True">
             <ListBoxItem Content="History"/>
             <ListBoxItem Content="Downloads"/>
